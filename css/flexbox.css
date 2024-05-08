@@ -1,0 +1,164 @@
+/*Cabecera*/
+.cabecera__container{
+    display: flex; /*Para contener todo en la caja*/
+    justify-content: space-between;/*espaciado entre elementos, usa todo el espacio*/
+    align-items: center;/*centrar los elementos*/
+    position: fixed;/*Mantener fijo el contenido, es decir se mantiene a pesar de hacer scroll a la pagina*/
+    top: 0;
+}
+
+.cabecera__buscar__item{
+    display: none;  /*No hace visible la barra de busqueda*/
+}
+    
+
+    /*MENU*/
+.menu__container{
+    position: fixed; /*Posicion con valor fijo, alinea a la izquierda*/
+    bottom: 0%; /*Ubicar en la parte de abajo*/
+    height: 75px;/*La altura del contenedor de de 75px en la parte de abajo*/
+    width: 100%; /*El ancho va a ser del 100% para que abarque todo el espacio de inferior*/
+}
+
+.menu__lista{
+    display: flex; /*Para que todos los elementos se muestren en la caja*/
+    justify-content: space-around;/*espaciado entre elementos, usa todo el espacio*/
+    height: 100%;/*La altura del contenedor de de 75px en la parte de abajo*/
+}
+
+.menu__lista li{ /*trabajar con etiquetas LI que estan en menu__lista*/
+    align-self: center;/*Centra los elementos dentro del contenedor*/
+}
+
+.menu__itens{
+    display: flex; /*Para que todos los elementos se muestren en la caja*/
+    flex-direction: column; /*Para que los elementos esten en columna o vertical*/
+    gap: 5px; /*Espaciado entre icono y texto*/
+
+}
+
+.menu__lista:nth-child(2), /*nth-child( n ) Trabaja con elemntos hermanos */
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none; /*Ocultar los elementos 2 3 4 para la version movil */
+}
+
+
+/*Seccion superior*/
+.superior__seccion__container{
+    display: flex; /*hace que se posicionen uno al lado del otro*/
+    align-items: center; /*centra los elementos*/
+    white-space: nowrap; /*Ajusta el contendido a una sola linea de los containers*/
+    overflow: scroll; /*Muestra un Scroll para deslizar y ver los demas contenidos*/
+    gap:15px; /*Agrega espacio entre cada superior-item */
+}
+
+/*Videos*/
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;/* El elemento flexible crecerá para ocupar el espacio adicional */
+    
+}
+
+.videos__container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.descripcion-video{
+    margin-top: 1rem;
+    display: flex;
+    align-items: start;
+}
+
+.descripcion-video img{
+    margin-right: 1rem;
+    flex-shrink: 0;  /*  Evita que la imagen se reduzca */
+}
+
+.detalles__video{
+    flex-direction: column;
+    text-align: left;
+}
+
+.detalles__video h3{
+    margin-bottom: 10px;
+}
+
+/*Radapie*/
+.rodapie__container{/*Abarca la seccion del pie de pagina*/
+    display: flex; /*hace que las columas se orden dentro de la caja o seccion del footer*/
+    /*flex-direction: column; Ordena el contenido en una sola columna
+    flex-wrap: wrap; Hace que el contenido se acomode en el espacio disponible*/
+    flex-flow: column wrap; /*Lo mismo que arriba pero reducido*/
+}
+
+@media (min-width:834px) { /*@media funciona como condicionante, si el tamanio minimo del dispositivo es de 834px */
+    .cabecera__buscar__item{ /*Entones la barra de busqueda se muestra */
+        display: block;
+    }
+
+    .rodapie__container{
+        justify-content: space-between; /*espaciado entre elementos*/
+    }
+
+    .menu__container{
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+
+    .menu__lista{
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+}
+
+@media (min-width:1440px) {
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+
+    .menu__lista:nth-child(2), /*nth-child( n ) Trabaja con elemntos hermanos */
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+    display: flex; /*Muestra los elementos 2 3 4 para la version ordenador */
+    }
+
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+
+    .menu__lista:nth-child(3){ /*Ordena Suscripciones de forma invertida*/
+        flex-direction: column-reverse;
+    }
+
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items: center; /*Centramos el texto y los iconos a la misma altura (forma vertical)*/
+    }
+
+    .videojuegos{
+        order: 3;
+    }
+
+    .peliculas{
+        order: 2;
+    }
+
+    .premium{
+        order: 1;
+    }
+
+}
+
